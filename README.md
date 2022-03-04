@@ -7,5 +7,5 @@
 
 <p float="left">
   <img src="./pics/tela_2.jpeg" height="500" />
-  <img src="./pics/tela_4.jpeg" heihgt="500" />
+  <img src="./pics/tela_4.jpeg" height="500" />
 </p>
