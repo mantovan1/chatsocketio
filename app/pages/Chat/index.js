@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Dimensions, FlatList, ImageBackground, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 
 import { FontAwesome } from '@expo/vector-icons';
@@ -68,19 +68,18 @@ export default function App({ navigation, route }) {
   }
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={require('../../assets/background.jpg')} style={styles.container}>
       <View style={styles.header}>
         <Text> {room} </Text>
       </View>
 
-      <View style={{width: '100%', height: Dimensions.get('screen').height * 0.75}}>
         <FlatList
-        style={{width: '100%'}}
+        style={{width: '100%', height: Dimensions.get('window').height * 0.85}}
         data={messagesList}
         keyExtractor={ ( item ) => item.uuid}
         renderItem={( {item} ) => (
           <View style={{width: '100%', marginVertical: 10}}>
-            <View style={{justifyContent: 'center', alignSelf: item.user===user?'flex-end':'flex-start', minWidth: 80, minHeight: 50, borderRadius: 5, marginHorizontal: 10, padding: 5, backgroundColor: '#e4e4e4'}}>
+            <View style={{justifyContent: 'center', alignSelf: item.user===user?'flex-end':'flex-start', minWidth: 80, minHeight: 50, borderRadius: 5, marginHorizontal: 10, padding: 10, backgroundColor: '#e4e4e4'}}>
               {item.user!=user && <Text style={{fontWeight: 'bold'}}>{item.user}</Text>}
               <Text>{item.text}</Text>
             </View>  
@@ -88,14 +87,14 @@ export default function App({ navigation, route }) {
         )}
         />
         
-      </View>
-      <View style={styles.footer}>
+      <KeyboardAvoidingView style={styles.footer}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <TextInput ref={edtMessage} placeholder='Mensagem...' style={styles.textinput} onChangeText={(text) => setText(text)} />
         <TouchableOpacity style={styles.sendicon} onPress={send_message}>
             <FontAwesome  name="send" size={30} color="black" />
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
 
-    </View>
+    </ImageBackground>
   );
 }
