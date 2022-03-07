@@ -30,8 +30,16 @@ export default function App({navigation}) {
             </View>
             <View style={styles.content}>
                 <AntDesign style={styles.icon} name="message1" size={100} color="black" />
-                <TextInput placeholder="Usuário..." style={styles.textinput} onChangeText={(text) => setUser(text)} />
-                <TextInput placeholder="Sala..." style={styles.textinput} onChangeText={(text) => setRoom(text)} />
+                <View>
+                    <Text style={styles.label}>Nome: </Text>
+                    <TextInput placeholder="Digite seu nome de usuário..." style={styles.textinput} onChangeText={(text) => setUser(text)} />
+                </View>
+
+                <View>
+                    <Text style={styles.label}>Sala: </Text>
+                    <TextInput placeholder="Digite a sua sala..." style={styles.textinput} onChangeText={(text) => setRoom(text)} />
+                </View>
+                
                 <TouchableOpacity style={styles.btnsend} onPress={goToChat}>
                     <Text style={{color: 'white'}}>Próximo</Text>
                 </TouchableOpacity>

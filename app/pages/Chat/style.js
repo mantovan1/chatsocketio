@@ -9,7 +9,7 @@ export default StyleSheet.create({
     },
     header: {
       width: '100%',
-      height: Dimensions.get('screen').height*0.05,
+      height: Dimensions.get('window').height*0.05,
       alignItems: 'center',
       marginTop: Constants.statusBarHeight,
       padding: 10,
@@ -19,20 +19,21 @@ export default StyleSheet.create({
         width: '100%'
     },  
     footer: {
+      width: Dimensions.get('window').width * 1,
+      height: Dimensions.get('window').height * 0.08,
+      position: 'relative',
       flexDirection: 'row',
-      width: '100%',
-      height: Dimensions.get('screen').height*0.1,
-      alignSelf: 'flex-end',
       alignItems: 'center',
       justifyContent: 'space-around',
       backgroundColor: '#e4e4e4'
     },
     textinput: {
-        width: Dimensions.get('screen').width * 0.8,
-        height: '60%',
-        borderRadius: 5,
+        width: '80%',
+        height: '80%',
+        borderRadius: 30,
         padding: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        elevation: 3,
     },
     sendicon: {
         marginRight: 10
